@@ -18,8 +18,8 @@ def start():
     while reset:
         deco.message('Welcome to the Binary/Decimal Converter!')
         print("\nWhat gamemode do you want to play?\n")
-        print('1. Binary to Decimal')
-        print('2. Decimal to Binary')
+        print('1. Decimal to Binary')
+        print('2. Binary to Decimal')
         print('\n3. Exit\n')
         
         try: 
