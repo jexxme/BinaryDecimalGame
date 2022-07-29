@@ -1,21 +1,12 @@
-import random
 import os
 import deco
 import binaryGame
 import decimalGame
 
-
-#TODO menu to choose difficulty level (easy, medium, hard) 
-#Könnte man mit mehreren pythonfiles realisieren
-#Bspw. ein file mit start()
-#ein weiteres file für dec() (mit 3 Funktionen, leicht,mittel,schwer)
-#ein weiteres file für bin() (mit 3 Funktionen, leicht,mittel,schwer)
-#bin und dec werden dann mit start() aufgerufen und die Funktionen werden ausgeführt
-
-
 def start():
     reset = True
     while reset:
+        os.system('cls' if os.name == 'nt' else 'clear')
         deco.message('Welcome to the Binary/Decimal Converter!')
         print("\nWhat gamemode do you want to play?\n")
         print('1. Decimal to Binary')
