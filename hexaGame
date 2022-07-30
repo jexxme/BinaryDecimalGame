@@ -1,6 +1,7 @@
 #Public module
 import random
 import os
+from turtle import tracer
 from unicodedata import decimal
 import secrets
 import time
@@ -55,11 +56,6 @@ def hexa():
         os.system('cls' if os.name == 'nt' else 'clear')
         hexa()
     
-
-
-
-# Python code to convert from Binary
-# to hexadecimal using format()
 def binToHex(n):
     num = int(n, 2)
     hex_num = format(num, 'x')
@@ -73,12 +69,32 @@ def hexToBin(n):
 def hexToBinary():
     reset_hex = True
     score = 0
-    input("Choose difficulty: 1. Easy 2. Medium 3. Hard\n")
+    os.system("clear")
+    deco.message('Welcome to the Hexadecimal to Binary Converter!')
+    print("\nChoose difficulty:\n")
+    print("The higher the number, the harder the game.")
+    print("But you will also get more points for each correct answer!\n")
+
+
+    try:
+        diff = int(input("Enter a number (16-256): \n\n"))
+    except ValueError:
+        print('\n\nPlease enter a number between 16 and 256!\n\n')
+        input("Press Enter to continue...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        hexToBinary()
+    if diff < 16 or diff > 256:
+        print("Please enter a number between 16 and 256!")
+        input("Press Enter to continue...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        hexToBinary()
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    
     while reset_hex:
-        randomInt = random.randint(0,255)
+        randomInt = random.randint(0,diff)
         randomHexa = hex(randomInt)[2:]
         res = hexToBin(randomHexa)
-
         print(f'Please convert the following hexadecimal number to a binary:\n\n' + randomHexa + '\n')
         try:
             inp = str(input("My Answer:\n"))
@@ -114,24 +130,24 @@ def hexToBinary():
 
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
-                reset_dec = True
+                reset_hex= True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                hexToBinary()
+                continue
             elif reset.__eq__(''):
-                reset_dec = True
+                reset_hex = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
                 hexToBinary()
             else:
                 reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
                 if reset.__eq__('m'):
-                    reset_dec = False
+                    reset_hex = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
-                    reset_dec = False
+                    reset_hex = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     hexToBinary()
