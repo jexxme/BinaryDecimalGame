@@ -179,7 +179,7 @@ def binaryMedium():
                 os.system('cls' if os.name == 'nt' else 'clear')
                 binaryMedium()
             else:
-                reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
+                reset = str(input('Do you want to exit to the main menu (m) or change the difficulty level (d)? <m/d>: '))
                 if reset.__eq__('m'):
                     reset_bin = False
                     score = 0
@@ -206,7 +206,7 @@ def binaryHard():
     score = 0
     while reset_bin:
         res = 0
-        num = random.randrange(7, 63)
+        num = random.randrange(15, 63)
 
         print(f'Please convert the following decimal number to a binary:\n\n{num}\n')
         
@@ -245,7 +245,7 @@ def binaryHard():
             score += 3
             print(f'\nCurent Score: {score}')
             if score == 20:
-                input(deco.endLevel())
+                deco.endLevel()
         else:
             print(f'Incorrect answer!')
             print(f'Correct answer: {res}')
