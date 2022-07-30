@@ -4,6 +4,7 @@ from unicodedata import decimal
 import deco
 import main
 import time
+import leaderboard
 
 def bin():
     reset_bin = True
@@ -37,8 +38,6 @@ def bin():
         binaryHard()
     elif inp.__eq__(4):
         reset = False
-        print('Thanks for playing!')
-        input("Press Enter to exit to main menu...")
         main.start()
     else:
         print('Invalid option!')
@@ -86,6 +85,17 @@ def binaryEasy():
             print(f'Correct answer: {res}')
             print()
             print(f'Highscore: {score}')
+
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'D->B', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    bin()
+
             reset_bin = False
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
@@ -103,8 +113,6 @@ def binaryEasy():
                 if reset.__eq__('m'):
                     reset_bin = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
@@ -166,6 +174,17 @@ def binaryMedium():
             print(f'Correct answer: {res}')
             print()
             print(f'Highscore: {score}')
+
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'D->B', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    bin()
+
             reset_bin = False
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
@@ -183,8 +202,6 @@ def binaryMedium():
                 if reset.__eq__('m'):
                     reset_bin = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
@@ -251,6 +268,16 @@ def binaryHard():
             print(f'Correct answer: {res}')
             print()
             print(f'Highscore: {score}')
+
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'D->B', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    bin()
             reset_bin = False
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
@@ -268,8 +295,6 @@ def binaryHard():
                 if reset.__eq__('m'):
                     reset_bin = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):

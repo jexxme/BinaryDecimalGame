@@ -6,7 +6,7 @@ import time
 
 def message(text):
     print("\n----------------------------------------------------")	
-    print("          " + text + "            ")
+    print("       " + text + "            ")
     print("----------------------------------------------------")
 
 def message2(*text):

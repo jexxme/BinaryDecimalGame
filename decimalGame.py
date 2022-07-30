@@ -4,6 +4,7 @@ from unicodedata import decimal
 import deco
 import main
 import time
+import leaderboard
 
 def dec():
     reset_dec = True
@@ -35,8 +36,6 @@ def dec():
         decimalHard()
     elif inp.__eq__(4):
         reset = False
-        print('Thanks for playing!')
-        input("Press Enter to exit to main menu...")
         main.start()
     else:
         print('Invalid option!')
@@ -90,6 +89,16 @@ def decimalEasy():
             print(f'Highscore: {score}\n')
             reset_dec = False
 
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'B->D', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    dec()
+
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
                 reset_dec = True
@@ -106,8 +115,6 @@ def decimalEasy():
                 if reset.__eq__('m'):
                     reset_dec = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
@@ -171,6 +178,16 @@ def decimalMedium():
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
 
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'B->D', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    dec()
+
             reset_dec = False
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
@@ -188,8 +205,6 @@ def decimalMedium():
                 if reset.__eq__('m'):
                     reset_dec = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
@@ -259,6 +274,16 @@ def decimalHard():
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
 
+            if score > 0:
+                saveScore = str(input("Do you want to save your score? (y/n)"))
+                if saveScore.__eq__('y'):
+                    name = input("Please enter your name: ")
+                    leaderboard.updateLeaderboard(name, 'B->D', score)
+                    print('\nYour score has been saved!')
+                    input("Press Enter to continue...")
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    dec()
+
             reset_dec = False
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
@@ -276,8 +301,6 @@ def decimalHard():
                 if reset.__eq__('m'):
                     reset_dec = False
                     score = 0
-        
-                    input("Press Enter to exit to main menu...")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
