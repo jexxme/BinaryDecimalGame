@@ -6,7 +6,7 @@ import time
 
 def message(text):
     print("\n----------------------------------------------------")	
-    print("          " + text + "            ")
+    print("       " + text + "            ")
     print("----------------------------------------------------")
 
 def message2(*text):
@@ -149,7 +149,7 @@ def endLevel():
             score += 1
             print(f'Curent Score: {score}')
             if score == 10:
-                print('Congratulations! You have proven yourself to be the true binary master!.')
+                print('Congratulations! You have proven yourself to be the true binary master!.\n')
                 time.sleep(0.5)
                 print(
                 """
@@ -170,7 +170,7 @@ def endLevel():
                 ░░████████████░░░█████████████████░░░░░░
                 """)
             time.sleep(1)
-            input("Press Enter to exit to main menu...")
+            input("\nPress Enter to exit to main menu...")
             main.start()
         else:
             print(f'Incorrect answer!')
@@ -188,4 +188,4 @@ def endLevel():
                 reset_bin = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                exit()
+                main.start()
