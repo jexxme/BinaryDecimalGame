@@ -10,8 +10,8 @@ import main
 import leaderboard
 
 
-def hex():
-    reset_dec = True
+def hexa():
+    reset_hex = True
     os.system("clear")
     deco.message('Welcome to the hexadecimal Game!')
     print("\nWhat Gamemode do you want to play?\n")
@@ -53,7 +53,7 @@ def hex():
         input("Press Enter to continue...")
         reset = True
         os.system('cls' if os.name == 'nt' else 'clear')
-        hex()
+        hexa()
     
 
 
@@ -70,39 +70,25 @@ def hexToBin(n):
     bin_num = format(num, 'b')
     return(bin_num)
 
-
-
 def hexToBinary():
-    reset_dec = True
+    reset_hex = True
     score = 0
-    while reset_dec:
-        res = 0
-        num = f""
+    input("Choose difficulty: 1. Easy 2. Medium 3. Hard\n")
+    while reset_hex:
+        randomInt = random.randint(0,255)
+        randomHexa = hex(randomInt)[2:]
+        res = hexToBin(randomHexa)
 
-
-        randomInt = random.randint(0,4)
-        
-        num = hex()
-
-        print("\nThe hexadecimal number is: " + num)
-
-        print(f'Please convert the following hexadecimal number to a binary:\n\n{num}\n')
+        print(f'Please convert the following hexadecimal number to a binary:\n\n' + randomHexa + '\n')
         try:
-            inp = int(input("My Answer:\n"))
+            inp = str(input("My Answer:\n"))
         except ValueError:
             print('\nPlease enter a number!')
             input("Press Enter to continue...")
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
 
-        def hexToBin(n):
-            InputNum = int(n, 16)
-            bin_num = format(InputNum, 'b')
-            return(bin_num)
-
-        res = hexToBin(num)
-
-        if inp == int(res):
+        if inp == res:
             print('\nCorrect answer!')
             score += 1
             print(f'\nCurrent Score: {score}\n')
@@ -114,29 +100,29 @@ def hexToBinary():
             print('\nIncorrect answer!')
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
-            reset_dec = False
+            reset_hex = False
 
             if score > 0:
                 saveScore = str(input("Do you want to save your score? (y/n)"))
                 if saveScore.__eq__('y'):
                     name = input("Please enter your name: ")
-                    leaderboard.updateLeaderboard(name, 'B->D', score)
+                    leaderboard.updateLeaderboard(name, 'H->B', score)
                     print('\nYour score has been saved!')
                     input("Press Enter to continue...")
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    dec()
+                    hexToBinary()
 
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
                 reset_dec = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                decimalEasy()
+                hexToBinary()
             elif reset.__eq__(''):
                 reset_dec = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                decimalEasy()
+                hexToBinary()
             else:
                 reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
                 if reset.__eq__('m'):
@@ -148,13 +134,12 @@ def hexToBinary():
                     reset_dec = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    dec()
+                    hexToBinary()
                 else:
                     print('Invalid option!')
                     input("Press Enter to continue...")
                     reset_dec = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    dec()
+                    hexToBinary()
                     
-hexToBinary()
