@@ -90,6 +90,7 @@ def art3():
 def art4():
     print()
 
+#secret
 def endLevel():
     print("\n",message2)
     print(welcome())

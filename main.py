@@ -4,6 +4,7 @@ import deco
 import binaryGame
 import decimalGame
 import leaderboard
+import random
 
 def start():
     leaderboard.createLeaderboard()
@@ -11,7 +12,8 @@ def start():
     while reset:
         os.system('cls' if os.name == 'nt' else 'clear')
         deco.message('Welcome to the Number System Game!')
-        print("\nWhat gamemode do you want to play?\n")
+        print("\nWhat Gamemode do you want to play?\n")
+        print("0. Random Gamemode")
         print('1. Decimal to Binary')
         print('2. Binary to Decimal')
         print("\n3. Hex to Binary")
@@ -29,6 +31,11 @@ def start():
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
 
+        if inp.__eq__(0):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            inp = random.randint(1,6)
+        
         if inp.__eq__(1):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -61,7 +68,7 @@ def start():
             reset = False
             print('Thanks for playing!')
             print("Idea by: H.K.")
-            print("Code by: Jerome")
+            print("Code by: Jerome and H.K.")
             input("Press Enter to exit...")
             exit()
         else:
