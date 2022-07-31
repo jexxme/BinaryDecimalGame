@@ -61,7 +61,7 @@ def start():
             reset = False
             print('Thanks for playing!')
             print("Idea by: H.K.")
-            print("Code by: Jerome")
+            print("Code by: Jerome and H.K.")
             input("Press Enter to exit...")
             exit()
         else:
