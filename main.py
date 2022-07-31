@@ -1,3 +1,4 @@
+import hexaGame
 import os
 import deco
 import binaryGame
@@ -13,8 +14,12 @@ def start():
         print("\nWhat gamemode do you want to play?\n")
         print('1. Decimal to Binary')
         print('2. Binary to Decimal')
-        print('\n3. View Leaderboard')
-        print('\n4. Exit\n')
+        print("\n3. Hex to Binary")
+        print("4. Binary to Hex")   
+        print("\n5. Hex to Decimal")
+        print("6. Decimal to Hex")
+        print('\n7. View Leaderboard')
+        print('\n8. Exit\n')
         
         try: 
             inp = int(input('Choose an option: '))
@@ -35,8 +40,24 @@ def start():
         elif inp.__eq__(3):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            leaderboard.printLeaderboard()
+            hexaGame.hexToBinary()
         elif inp.__eq__(4):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            hexaGame.binToHexadecimal()
+        elif inp.__eq__(5):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            hexaGame.hexToDecimal()
+        elif inp.__eq__(6):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            hexaGame.binToHexadecimal()
+        elif inp.__eq__(7):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            leaderboard.printLeaderboard()
+        elif inp.__eq__(8):
             reset = False
             print('Thanks for playing!')
             input("Press Enter to exit...")

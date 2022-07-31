@@ -1,6 +1,5 @@
 import random
 import os
-from unicodedata import decimal
 import main
 import time
 
