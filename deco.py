@@ -90,8 +90,7 @@ def art3():
 def art4():
     print()
 
-#secret
-def endLevel():
+def secretEndLevel():
     print("\n",message2)
     print(welcome())
     print('\nCongratulations! You have proven yourself.')
@@ -186,7 +185,7 @@ def endLevel():
                 reset_bin = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                endLevel()
+                secretEndLevel()
             else:
                 reset_bin = True
                 score = 0

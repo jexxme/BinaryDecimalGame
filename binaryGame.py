@@ -262,7 +262,7 @@ def binaryHard():
             score += 3
             print(f'\nCurent Score: {score}')
             if score == 20:
-                deco.endLevel()
+                deco.secretEndLevel()
         else:
             print(f'Incorrect answer!')
             print(f'Correct answer: {res}')
