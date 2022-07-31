@@ -17,9 +17,9 @@ def start():
         print("\n3. Hex to Binary")
         print("4. Binary to Hex")   
         print("\n5. Hex to Decimal")
-        print("6. Decimal to Hex")
-        print('\n7. View Leaderboard')
-        print('\n8. Exit\n')
+        print("6. Decimal to Hex\n")
+        deco.message3()
+        print('    7. View Leaderboard       8. Exit\n\n')
         
         try: 
             inp = int(input('Choose an option: '))

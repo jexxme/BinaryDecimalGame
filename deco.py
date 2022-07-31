@@ -11,6 +11,9 @@ def message(text):
 def message2(*text):
     print("------------------------------------------------------------\n")
 
+def message3(*text):
+    print("----------------------------------------------------")
+
 def clear():
     input("Press Enter to continue...")
     os.system('cls' if os.name == 'nt' else 'clear')
