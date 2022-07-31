@@ -10,7 +10,7 @@ def start():
     reset = True
     while reset:
         os.system('cls' if os.name == 'nt' else 'clear')
-        deco.message('Welcome to the Binary/Decimal Converter!')
+        deco.message('Welcome to the Number System Game!')
         print("\nWhat gamemode do you want to play?\n")
         print('1. Decimal to Binary')
         print('2. Binary to Decimal')
@@ -60,6 +60,8 @@ def start():
         elif inp.__eq__(8):
             reset = False
             print('Thanks for playing!')
+            print("Idea by: H.K.")
+            print("Code by: Jerome")
             input("Press Enter to exit...")
             exit()
         else:

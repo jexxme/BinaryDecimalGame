@@ -1,7 +1,6 @@
 import random
 import os
 import time
-from tkinter.messagebox import QUESTION
 import deco
 import main
 import leaderboard
