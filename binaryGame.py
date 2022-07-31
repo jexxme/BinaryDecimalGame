@@ -8,7 +8,7 @@ import leaderboard
 
 def bin():
     reset_bin = True
-    deco.message('Welcome to the Binary Converter!')
+    deco.message('Welcome to the Decimal to Binary Game!')
     print("\nYou will be asked to convert a decimal number to a binary number.")
     print("\nWhat difficulty do you want to play?\n")
     print("1. Easy")

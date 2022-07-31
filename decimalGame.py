@@ -8,7 +8,7 @@ import leaderboard
 
 def dec():
     reset_dec = True
-    deco.message('Welcome to the Decimal Converter!')
+    deco.message('Welcome to the Binary to Decimal Game!')
     print("\nWhat difficulty do you want to play?\n")
     print("1. Easy")
     print("2. Medium")

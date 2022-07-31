@@ -9,29 +9,24 @@ def hexToBinary():
     reset_hex = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    deco.message('Welcome to the Hexadecimal to Binary Converter!')
+    deco.message('Welcome to the Hexadecimal to Binary Game!')
     print("\nChoose difficulty:\n")
     print("The higher the number, the harder the game.")
     print("But you will also get more points for each correct answer!\n")
 
     try:
-        diff = int(input("Enter a number (16-256): \n\n"))
+        difficulty = int(input("Enter a number (16-256): \n\n"))
     except ValueError:
         print('\n\nPlease enter a number between 16 and 256!\n\n')
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
         hexToBinary()
-    if diff < 16 or diff > 256:
+    if difficulty < 16 or difficulty > 256:
         print("Please enter a number between 16 and 256!")
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
         hexToBinary()
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    def binToHex(n):
-        num = int(n, 2)
-        hex_num = format(num, 'x')
-        return(hex_num)
 
     def hexToBin(n):
         num = int(n, 16)
@@ -39,7 +34,7 @@ def hexToBinary():
         return(bin_num)
         
     while reset_hex:
-        randomInt = random.randint(0,diff)
+        randomInt = random.randint(0,difficulty)
         randomHexa = hex(randomInt)[2:]
         res = hexToBin(randomHexa)
         print(f'Please convert the following hexadecimal number to a binary:\n\n' + randomHexa + '\n')
@@ -51,9 +46,16 @@ def hexToBinary():
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
 
+        if difficulty >= 16 and difficulty <= 85:
+            points = 1
+        elif difficulty >= 86 and difficulty <= 170:
+            points = 2
+        elif difficulty >= 171 and difficulty <= 256:
+            points = 3
+
         if inp == res:
             print('\nCorrect answer!')
-            score += 1
+            score += points
             print(f'\nCurrent Score: {score}\n')
             deco.message2()
             time.sleep(1)
@@ -111,19 +113,19 @@ def binToHexadecimal():
     reset_hex = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    deco.message('Welcome to the Binary to Hexadecimal Converter!')
+    deco.message('Welcome to the Binary to Hexadecimal Game!')
     print("\nChoose difficulty:\n")
     print("The higher the number, the harder the game.")
     print("But you will also get more points for each correct answer!\n")
     
     try:
-        diff = int(input("Enter a number (16-256): \n\n"))
+        difficulty = int(input("Enter a number (16-256): \n\n"))
     except ValueError:
         print('\n\nPlease enter a number between 16 and 256!\n\n')
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
         binToHexadecimal()
-    if diff < 16 or diff > 256:
+    if difficulty < 16 or difficulty > 256:
         print("Please enter a number between 16 and 256!")
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -138,7 +140,7 @@ def binToHexadecimal():
             hex_num = hex(num)
             return(hex_num)
 
-        randomInt = int(random.randint(0,diff)) #create random number, diff is the difficulty set by the user
+        randomInt = int(random.randint(0,difficulty)) #create random number, diff is the difficulty set by the user
         randomBin = bin(randomInt)[2:] #convert to binary
         randomHex = binToHex(randomBin)[2:] #convert to hexadecimal
         res = randomHex #save the random hexadecimal number
@@ -151,10 +153,17 @@ def binToHexadecimal():
             input("Press Enter to continue...")
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
+        
+        if difficulty >= 16 and difficulty <= 85:
+            points = 1
+        elif difficulty >= 86 and difficulty <= 170:
+            points = 2
+        elif difficulty >= 171 and difficulty <= 256:
+            points = 3
 
         if inp == res:
             print('\nCorrect answer!')
-            score += 1
+            score += points
             print(f'\nCurrent Score: {score}\n')
             deco.message2()
             time.sleep(1)
@@ -210,19 +219,19 @@ def hexToDecimal():
     reset_hex = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    deco.message('Welcome to the Hexadecimal to Decimal Converter!') # sehr random bug:AttributeError: partially initialized module 'deco' has no attribute 'message' (most likely due to a circular import)
+    deco.message('Welcome to the Hexadecimal to Decimal Game!')
     print("\nChoose difficulty:\n")
     print("The higher the number, the harder the game.")
     print("But you will also get more points for each correct answer!\n")
     
     try:
-        diff = int(input("Enter a number (16-256): \n\n"))
+        difficulty = int(input("Enter a number (16-256): \n\n"))
     except ValueError:
         print('\n\nPlease enter a number between 16 and 256!\n\n')
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
         hexToDecimal()
-    if diff < 16 or diff > 256:
+    if difficulty < 16 or difficulty > 256:
         print("Please enter a number between 16 and 256!")
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -237,7 +246,7 @@ def hexToDecimal():
             hex_num = hex(num)
             return(hex_num)
 
-        randomInt = int(random.randint(0,diff)) #create random number, diff is the difficulty set by the user
+        randomInt = int(random.randint(0,difficulty)) #create random number, diff is the difficulty set by the user
         randomBin = bin(randomInt)[2:] #convert to binary
         randomHex = binToHex(randomBin)#convert to hexadecimal
         res = int(randomHex, base=16) #save the random hexadecimal number as result 
@@ -250,10 +259,18 @@ def hexToDecimal():
             input("Press Enter to continue...")
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
+        
+        if difficulty >= 16 and difficulty <= 85:
+            points = 1
+        elif difficulty >= 86 and difficulty <= 170:
+            points = 2
+        elif difficulty >= 171 and difficulty <= 256:
+            points = 3
+
 
         if inp == str(res):
             print('\nCorrect answer!')
-            score += 1
+            score += points
             print(f'\nCurrent Score: {score}\n')
             deco.message2()
             time.sleep(1)
@@ -309,19 +326,19 @@ def decToHexadecimal():
     reset_hex = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    deco.message('Welcome to the Decimal to Hexadecimal Converter!') 
+    deco.message('Welcome to the Decimal to Hexadecimal Game!') 
     print("\nChoose difficulty:\n")
     print("The higher the number, the harder the game.")
     print("But you will also get more points for each correct answer!\n")
     
     try:
-        diff = int(input("Enter a number (16-256): \n\n"))
+        difficulty = int(input("Enter a number (16-256): \n\n"))
     except ValueError:
         print('\n\nPlease enter a number between 16 and 256!\n\n')
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
         decToHexadecimal()
-    if diff < 16 or diff > 256:
+    if difficulty < 16 or difficulty > 256:
         print("Please enter a number between 16 and 256!")
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -335,7 +352,7 @@ def decToHexadecimal():
             # convert int to hexadecimal
             hex_num = hex(num)
             return(hex_num)
-        randomInt = int(random.randint(0,diff)) #create random number, diff is the difficulty set by the user
+        randomInt = int(random.randint(0,difficulty)) #create random number, diff is the difficulty set by the user
         randomBin = bin(randomInt)[2:] #convert to binary
         randomHex = binToHex(randomBin)#convert to hexadecimal
         question = str(randomInt)
@@ -350,9 +367,16 @@ def decToHexadecimal():
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
 
+        if difficulty >= 16 and difficulty <= 85:
+            points = 1
+        elif difficulty >= 86 and difficulty <= 170:
+            points = 2
+        elif difficulty >= 171 and difficulty <= 256:
+            points = 3
+
         if inp == str(res):
             print('\nCorrect answer!')
-            score += 1
+            score += points
             print(f'\nCurrent Score: {score}\n')
             deco.message2()
             time.sleep(1)
