@@ -13,7 +13,7 @@ def start():
         os.system('cls' if os.name == 'nt' else 'clear')
         deco.message('Welcome to the Number System Game!')
         print("\nWhat Gamemode do you want to play?\n")
-        print("0. Random Gamemode")
+        print("0. Random Gamemode\n")
         print('1. Decimal to Binary')
         print('2. Binary to Decimal')
         print("\n3. Hex to Binary")
