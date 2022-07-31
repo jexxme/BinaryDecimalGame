@@ -1,11 +1,9 @@
+import hexaGame
 import os
 import deco
 import binaryGame
 import decimalGame
 import leaderboard
-import os
-import deco
-import hexaGame
 
 def start():
     leaderboard.createLeaderboard()
@@ -46,22 +44,15 @@ def start():
         elif inp.__eq__(4):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            binaryToHex()
+            hexaGame.binToHexadecimal()
         elif inp.__eq__(5):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            hexToDecimal()
+            hexaGame.hexToDecimal()
         elif inp.__eq__(6):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            decimalToHex()
-        elif inp.__eq__(7):
-            reset = False
-            os.system('cls' if os.name == 'nt' else 'clear')
-            main.start()
-
-
-
+            hexaGame.binToHexadecimal()
         elif inp.__eq__(7):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
