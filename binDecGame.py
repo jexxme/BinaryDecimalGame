@@ -6,7 +6,7 @@ import main
 import leaderboard
 
 def decToBinary():
-    reset_hex = True
+    reset_dec = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
     deco.message('Welcome to the Decimal to Binary Game!')
@@ -29,7 +29,7 @@ def decToBinary():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-    while reset_hex:
+    while reset_dec:
         randomInt = random.randint(16, difficulty)
 
         randomBin = bin(randomInt)
@@ -38,7 +38,7 @@ def decToBinary():
         
         res = int(res)
 
-        print('Please convert the following Decimal number to a Binary:\n\n',randomInt,'\n')
+        print(f'Please convert the following Decimal number to a Binary:\n\n{randomInt}\n')
         try:
             inp = input("My Answer:\n")
         except ValueError:
@@ -66,7 +66,7 @@ def decToBinary():
             print('\nIncorrect answer!')
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
-            reset_hex = False
+            reset_dec = False
 
             if score > 0:
                 saveScore = str(input("Do you want to save your score? (y/n)"))
@@ -76,28 +76,25 @@ def decToBinary():
                     print('\nYour score has been saved!')
                     input("Press Enter to continue...")
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    decToBinary()
 
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
-                reset_hex= True
+                reset_dec= True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                continue
             elif reset.__eq__(''):
-                reset_hex = True
+                reset_dec = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                decToBinary()
             else:
                 reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
                 if reset.__eq__('m'):
-                    reset_hex = False
+                    reset_dec = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
-                    reset_hex = False
+                    reset_dec = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     decToBinary()
@@ -111,7 +108,7 @@ def decToBinary():
       
 
 def binToDecimal():
-    reset_hex = True
+    reset_bin = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
     deco.message('Welcome to the Binary to Decimal Game!')
@@ -134,14 +131,14 @@ def binToDecimal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-    while reset_hex:
+    while reset_bin:
         randomInt = random.randint(16, difficulty)
 
         randomBin = bin(randomInt)
 
         res = randomInt
 
-        print('Please convert the following Binary number to a Decimal:\n\n',randomBin[2:],'\n')
+        print(f'Please convert the following Binary number to a Decimal:\n\n{randomBin[2:]}\n')
         try:
             inp = input("My Answer:\n")
         except ValueError:
@@ -169,7 +166,7 @@ def binToDecimal():
             print('\nIncorrect answer!')
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
-            reset_hex = False
+            reset_bin = False
 
             if score > 0:
                 saveScore = str(input("Do you want to save your score? (y/n)"))
@@ -179,35 +176,32 @@ def binToDecimal():
                     print('\nYour score has been saved!')
                     input("Press Enter to continue...")
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    binToDecimal()
 
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
-                reset_hex= True
+                reset_bin= True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                continue
             elif reset.__eq__(''):
-                reset_hex = True
+                reset_bin = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                binToDecimal()
             else:
                 reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
                 if reset.__eq__('m'):
-                    reset_hex = False
+                    reset_bin = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
-                    reset_hex = False
+                    reset_bin = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     binToDecimal()
                 else:
                     print('Invalid option!')
                     input("Press Enter to continue...")
-                    reset_dec = False
+                    reset_bin = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     binToDecimal()
