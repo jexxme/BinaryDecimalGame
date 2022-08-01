@@ -1,8 +1,5 @@
 import hexaGame
 import os
-import deco
-import binaryGame
-import decimalGame
 import leaderboard
 import random
 import binDecGame
