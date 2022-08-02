@@ -3,6 +3,8 @@ import os
 import leaderboard
 import random
 import binDecGame
+import octalGame
+
 
 def start():
     leaderboard.createLeaderboard()
@@ -21,8 +23,10 @@ def start():
         print("4. Binary to Hex")   
         print("\n5. Hex to Decimal")
         print("6. Decimal to Hex\n")
+        print("\n7. Octal to Binary")
+        print("8. Binary to Octal")
         print("-----------------------------------------------------")
-        print('       7. View Leaderboard        8. Exit\n\n')
+        print('       9. View Leaderboard        10. Exit\n\n')
         
         try: 
             inp = int(input('Choose an option: '))
@@ -35,7 +39,7 @@ def start():
         if inp.__eq__(0):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            inp = random.randint(1,6)
+            inp = random.randint(1,8)
         
         if inp.__eq__(1):
             reset = False
@@ -64,8 +68,16 @@ def start():
         elif inp.__eq__(7):
             reset = False
             os.system('cls' if os.name == 'nt' else 'clear')
-            leaderboard.printLeaderboard()
+            octalGame.octToBinary()
         elif inp.__eq__(8):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            octalGame.binToOctal()
+        elif inp.__eq__(9):
+            reset = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            leaderboard.printLeaderboard()
+        elif inp.__eq__(10):
             reset = False
             print('Thanks for playing!')
             print("Idea by: H.K.")
