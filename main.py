@@ -9,11 +9,9 @@ def start():
     reset = True
     while reset:
         os.system('cls' if os.name == 'nt' else 'clear')
-        
         print("-----------------------------------------------------")
         print('       Welcome to the Number System Game!')
         print("-----------------------------------------------------")
-
         print("\n       What Gamemode do you want to play?")
         print("-----------------------------------------------------")
         print("\n0. Random Gamemode\n")
