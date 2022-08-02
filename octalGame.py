@@ -30,16 +30,9 @@ def octToBinary():
         
     while reset_oct:
         randomInt = random.randint(0,difficulty)
-
-        randomOct = int(randomInt,8)
-        randomBin = int(randomInt,2)
+        randomOct = oct(randomInt)[2:]
+        randomBin = bin(randomInt)[2:]
         res = randomBin
-
-
-        print("Lösung ist Octal: " + str(randomOct))
-        print("Lösung ist Binary: " + str(randomBin))
-        
-
 
         print(f'Please convert the following Octal number to a binary number:\n\n' + randomOct + '\n')
         try:
@@ -111,45 +104,38 @@ def octToBinary():
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     octToBinary()
-                    
-#mehr punkte durch for loop der variable erhöht graduelle und iteration ist eingabe von user
-def binToHexadecimal():
-    reset_hex = True
+
+
+def binToOctal():
+    reset_oct = True
     score = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    deco.message('Welcome to the Binary to Hexadecimal Game!')
+    deco.message('Welcome to the Binary to Octal Game!')
     print("\nChoose difficulty:\n")
     print("The higher the number, the harder the game.")
     print("But you will also get more points for each correct answer!\n")
-    
+
     try:
         difficulty = int(input("Enter a number (16-256): \n\n"))
     except ValueError:
         print('\n\nPlease enter a number between 16 and 256!\n\n')
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
-        binToHexadecimal()
+        binToOctal()
     if difficulty < 16 or difficulty > 256:
         print("Please enter a number between 16 and 256!")
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
-        binToHexadecimal()
+        binToOctal()
     os.system('cls' if os.name == 'nt' else 'clear')
+        
+    while reset_oct:
+        randomInt = random.randint(0,difficulty)
+        randomOct = oct(randomInt)[2:]
+        randomBin = bin(randomInt)[2:]
+        res = randomOct
 
-    while reset_hex:
-        def binToHex(n): #braucht bin string als input und gibt hex string zurück
-            # convert binary to int
-            num = int(n, 2)
-            # convert int to hexadecimal
-            hex_num = hex(num)
-            return(hex_num)
-
-        randomInt = int(random.randint(0,difficulty)) #create random number, diff is the difficulty set by the user
-        randomBin = bin(randomInt)[2:] #convert to binary
-        randomHex = binToHex(randomBin)[2:] #convert to hexadecimal
-        res = randomHex #save the random hexadecimal number
-
-        print(f'Please convert the following Binary number to a Hexadecimal:\n\n' + randomBin + '\n')
+        print(f'Please convert the following Binary number to a Octal number:\n\n' + randomBin + '\n')
         try:
             inp = str(input("My Answer:\n"))
         except ValueError:
@@ -157,7 +143,7 @@ def binToHexadecimal():
             input("Press Enter to continue...")
             os.system('cls' if os.name == 'nt' else 'clear')
             continue
-        
+
         if difficulty >= 16 and difficulty <= 85:
             points = 1
         elif difficulty >= 86 and difficulty <= 170:
@@ -177,45 +163,45 @@ def binToHexadecimal():
             print('\nIncorrect answer!')
             print(f'Correct answer: {res}')
             print(f'Highscore: {score}\n')
-            reset_hex = False
+            reset_oct = False
 
             if score > 0:
                 saveScore = str(input("Do you want to save your score? (y/n)"))
                 if saveScore.__eq__('y'):
                     name = input("Please enter your name: ")
-                    leaderboard.updateLeaderboard(name, 'H->B', score)
+                    leaderboard.updateLeaderboard(name, 'B->O', score)
                     print('\nYour score has been saved!')
                     input("Press Enter to continue...")
                     os.system('cls' if os.name == 'nt' else 'clear')
-            
+                    binToOctal()
+
             reset = str(input('Do you want to play again? <y/n>: '))
             if reset.__eq__('y'):
-                reset_hex= True
+                reset_oct= True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
                 continue
             elif reset.__eq__(''):
-                reset_hex = True
+                reset_oct = True
                 score = 0
                 os.system('cls' if os.name == 'nt' else 'clear')
-                continue
+                binToOctal()
             else:
                 reset = str(input('Do you want to exit to the main menu or change the difficulty level? <m/d>: '))
                 if reset.__eq__('m'):
-                    reset_hex = False
+                    reset_oct = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
                     main.start()
                 elif reset.__eq__('d'):
-                    reset_hex = False
+                    reset_oct = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    binToHexadecimal()
+                    binToOctal()
                 else:
                     print('Invalid option!')
                     input("Press Enter to continue...")
-                    reset_dec = False
+                    reset_oct = False
                     score = 0
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    binToHexadecimal()
-                    
+                    binToOctal()
